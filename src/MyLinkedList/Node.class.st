@@ -24,3 +24,13 @@ Node >> initialize: aData [
 	super initialize .
 	data= aData 
 ]
+
+{ #category : #accessing }
+Node >> next [ 
+	^ next 
+]
+
+{ #category : #accessing }
+Node >> next: aNext [
+	next := aNext 
+]
