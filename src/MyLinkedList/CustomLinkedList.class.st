@@ -17,3 +17,15 @@ CustomLinkedList >> head [
 CustomLinkedList >> head: aHead [ 
 	head := aHead 
 ]
+
+{ #category : #accessing }
+CustomLinkedList >> traverse [
+
+	| cur |
+	cur := head.
+	[ cur isNil ] whileFalse: [ 
+		Transcript show: cur data.
+		Transcript space.
+		cur := cur next ].
+
+]
