@@ -8,6 +8,17 @@ Class {
 }
 
 { #category : #accessing }
+CustomLinkedList >> add: aNode [ 
+	| cur |
+	cur := head .
+	[ cur next isNil ] whileFalse: [ 
+		cur := cur next .
+	 ] .
+	cur next: aNode .
+	
+]
+
+{ #category : #accessing }
 CustomLinkedList >> head [ 
 	
 	^ head 
