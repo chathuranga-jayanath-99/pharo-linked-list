@@ -22,6 +22,40 @@ CustomLinkedList >> add: aNode [
 ]
 
 { #category : #accessing }
+CustomLinkedList >> contains: aData [
+
+	| cur |
+	cur := head.
+	cur ifNil: [ ^ false ] ifNotNil: [ 
+		[ cur next isNotNil ] whileTrue: [ 
+			cur := cur next.
+			(cur data == aData) ifTrue: [ ^ true ] ] ].
+	^ false
+]
+
+{ #category : #accessing }
+CustomLinkedList >> getLast [
+
+	| cur |
+	cur := head.
+	cur ifNotNil: [ [ cur next isNotNil ] whileTrue: [ cur := cur next ] ].
+	^ cur
+]
+
+{ #category : #accessing }
+CustomLinkedList >> getSize [ 
+	| n cur |
+	cur := head .
+	n := 0 .
+	
+	[ cur isNotNil ] whileTrue: [ 
+		cur := cur next .
+		n := n + 1 .
+	 ] .
+	^ n.
+]
+
+{ #category : #accessing }
 CustomLinkedList >> head [ 
 	
 	^ head 
