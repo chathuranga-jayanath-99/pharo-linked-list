@@ -12,8 +12,9 @@ CustomLinkedList >> add: aNode [
 
 	| cur |
 	cur := head.
+
 	cur ifNil: [ 
-		cur := aNode .
+		head := aNode .
 		^ nil ].
 	[ cur next isNil ] whileFalse: [ cur := cur next ].
 	cur next: aNode .
