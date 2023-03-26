@@ -74,11 +74,13 @@ CustomLinkedList >> initialize [
 { #category : #accessing }
 CustomLinkedList >> traverse [
 
-	| cur |
+	| cur res|
+	res := OrderedCollection new.
 	cur := head.
 	[ cur isNil ] whileFalse: [ 
 		Transcript show: cur data.
 		Transcript space.
+		res add: cur data.
 		cur := cur next ].
-
+	^ res 
 ]
