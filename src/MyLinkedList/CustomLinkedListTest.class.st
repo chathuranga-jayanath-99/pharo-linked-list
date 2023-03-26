@@ -106,3 +106,26 @@ CustomLinkedListTest >> testListSize [
 	self assert: ll getSize equals: 2 .
 	
 ]
+
+{ #category : #tests }
+CustomLinkedListTest >> testTraverse [
+
+	| ll n1 n2 n3 res funcRes |
+	res := #( 10 12 14 ) asOrderedCollection.
+
+	ll := CustomLinkedList new.
+
+	n1 := Node new data: 10.
+	n2 := Node new data: 12.
+	n3 := Node new data: 14.
+
+	n1 next: n2.
+	n2 next: n3.
+
+	ll head: n1.
+
+	funcRes := ll traverse.
+
+	1 to: 3 do: [ :i | 
+	self assert: (res at: i) identicalTo: (funcRes at: i) ]
+]
